@@ -4,13 +4,13 @@ const infoDump = document.getElementById("infoDump");
 const progressBar = document.getElementById("progressBar");
 const getFavouritesBtn = document.getElementById("getFavouritesBtn");
 
-// ✅ YOUR API KEY
+
 const API_KEY = "live_mwfq0dh7VonMxaxQGXO0WDaO8WOX9mlX8sKAWCzz59QcNst2oJsV3sQx0XwnnU8r";
 
 axios.defaults.baseURL = "https://api.thecatapi.com/v1";
 axios.defaults.headers.common["x-api-key"] = API_KEY;
 
-// ---------------- INTERCEPTORS ----------------
+
 axios.interceptors.request.use((config) => {
   document.body.style.cursor = "progress";
   progressBar.style.width = "0%";
@@ -22,7 +22,7 @@ axios.interceptors.response.use((response) => {
   return response;
 });
 
-// ---------------- PROGRESS ----------------
+
 function updateProgress(event) {
   if (!event.total) return;
 
@@ -30,7 +30,7 @@ function updateProgress(event) {
   progressBar.style.width = percent + "%";
 }
 
-// ---------------- RENDER CAROUSEL ----------------
+
 function renderCarousel(images) {
   carousel.innerHTML = "";
 
@@ -42,7 +42,7 @@ function renderCarousel(images) {
   });
 }
 
-// ---------------- LOAD BREEDS ----------------
+
 async function loadBreeds() {
   const res = await axios.get("/breeds");
 
@@ -86,7 +86,7 @@ breedSelect.addEventListener("change", async (e) => {
   }
 });
 
-// ---------------- FAVORITES ----------------
+
 async function toggleFavourite(imageId) {
   await axios.post("/favourites", {
     image_id: imageId
@@ -127,7 +127,7 @@ async function loadBreeds() {
 
 loadBreeds();
 
-// ---------------- BREED CHANGE ----------------
+
 breedSelect.addEventListener("change", async (e) => {
   const breedId = e.target.value;
 
@@ -164,14 +164,14 @@ async function toggleFavourite(imageId) {
   });
 }
 
-// click image to favorite
+
 carousel.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
     toggleFavourite(e.target.dataset.id);
   }
 });
 
-// ---------------- GET FAVORITES ----------------
+
 getFavouritesBtn.addEventListener("click", async () => {
   const res = await axios.get("/favourites");
 
