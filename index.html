@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cat API Project</title>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -12,19 +10,22 @@
 
   <h1>🐱 Cat Breed Explorer</h1>
 
-  <!-- Breed dropdown -->
+  <div id="progressBar"></div>
+
   <select id="breedSelect">
     <option value="">Select a breed</option>
   </select>
 
-  <!-- Carousel area -->
+  <button id="getFavouritesBtn">Show Favorites</button>
+
   <div id="carousel"></div>
 
-  <!-- Breed info area -->
   <div id="infoDump"></div>
 
-  <!-- Your JavaScript file -->
-  <script src="./cat api.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+ 
+  <script src="cat api.js"></script>
 
 </body>
 </html>
